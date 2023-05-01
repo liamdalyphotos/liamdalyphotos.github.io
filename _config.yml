@@ -1,8 +1,10 @@
 # Base configs
 baseurl: "https://www.andrewlensen.com/photography"
 #baseurl: "" # Comment the above line and uncomment this to test the website locally
-image_fulls_loc: "/images/fulls"
-image_thumbs_loc: "/images/thumbs"
+image_dirs: ['wildlife','landscape']
+image_loc: "/images"
+image_fulls_loc: "/fulls"
+image_thumbs_loc: "/thumbs"
 
 # UI configs
 title: "Photography by Liam Daly"
