@@ -8,19 +8,13 @@ layout: default
     <!-- Header -->
     <header id="header">
         <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
-        <!-- <nav>
-            <ul>
-                <li><a href="#footer" class="icon fa-info-circle">About</a></li>
-            </ul>
-        </nav> -->
     </header>
 
     <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
 
         {% for category in site.image_dirs %}
-        <h1>{{category}}</h1>
-        <!-- <div id = "{{category}}"> -->
+        <h1>{{category}}</h1> <br/>
             {% for image in site.static_files %}
             {% if image.path contains category %}
             {% if image.path contains 'fulls' %}
@@ -28,14 +22,12 @@ layout: default
                 <a href="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
                     <img src="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
                          data-name="{{ image.name }}"/></a>
-                <!--<h2></h2>
-                <p></p>-->
+
             </article>
             {% endif %}
             {% endif %}
             {% endfor %}
-        <!-- </div> -->
-        </br>
+        <br/>
         {% endfor %}
 
 </div>
