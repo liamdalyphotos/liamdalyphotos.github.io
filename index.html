@@ -11,9 +11,11 @@ layout: default
     </header>
 
     <!-- Main -->
-    {% for category in site.image_dirs %}
-    <h1 class = "align-center">{{category}}</h1> <br/>
-    <div id="{{category}}Gallery" data-exif='{{ site.exif }}'>
+    <div id="main" data-exif='{{ site.exif }}'>
+        {% for category in site.image_dirs %}
+
+        <h1 class = "category">{{category}}</h1> <br/>
+
             {% for image in site.static_files %}
             {% if image.path contains category %}
             {% if image.path contains 'fulls' %}
@@ -26,7 +28,7 @@ layout: default
             {% endif %}
             {% endif %}
             {% endfor %}
+            {% endfor %}
 
 
     </div>
-    {% endfor %}

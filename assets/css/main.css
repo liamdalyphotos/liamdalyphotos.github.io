@@ -1415,6 +1415,15 @@
 			transform: translateY(4em);
 		}
 
+		h1 .category {
+			color: #a0a0a1;
+			display: inline-block;
+			font-size: 1em;
+			line-height: 1;
+			margin: 0;
+			vertical-align: middle;
+		}
+
 		#header h1 {
 			color: #a0a0a1;
 			display: inline-block;
