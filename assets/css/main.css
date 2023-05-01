@@ -1416,12 +1416,9 @@
 		}
 
 		.category {
-			color: #a0a0a1;
-			display: inline-block;
-			font-size: 1em;
-			line-height: 1;
+			width: 100%;
 			margin: 0;
-			vertical-align: middle;
+			text-align: center;
 		}
 
 		#header h1 {
