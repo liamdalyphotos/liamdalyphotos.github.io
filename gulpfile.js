@@ -6,23 +6,38 @@ var sass = require('gulp-sass')(require('sass'));
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var del = require('del');
+const glob = require('glob');
+const path = require('path');
+const imageFolders = glob.sync('images/*/')
 
 gulp.task('delete', function () {
     return del(['images/*.*']);
 });
 
 gulp.task('resize-images', function () {
-    return gulp.src('images/*.*')
+
+    const promises = []
+    for (const bundle of imageFolders) {
+
+        // get just the last directory of 'js/dev/bootstrap', 'js/dev/lib`, etc.
+        let thisBundle = path.basename(bundle);
+        console.log('thisBundle = ' + thisBundle);
+        promises.push(gulp.src(bundle + '/*.*')
         .pipe(imageResize({
-            width: 1024,
+            width: 1920,
             imageMagick: true
         }))
-        .pipe(gulp.dest('images/fulls'))
+        .pipe(gulp.dest(bundle + '/fulls'))
         .pipe(imageResize({
-            width: 512,
+            width: 720,
             imageMagick: true
         }))
-        .pipe(gulp.dest('images/thumbs'));
+        .pipe(gulp.dest(bundle + '/thumbs')));
+        
+    }
+
+    return Promise.all(promises)
+    
 });
 
 // compile scss to css
