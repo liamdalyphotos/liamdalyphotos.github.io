@@ -19,7 +19,7 @@ layout: default
     <div id="main" data-exif='{{ site.exif }}'>
 
         {% for category in site.image_dirs %}
-        <h1>{{category}}"/h1>
+        <h1>{{category}}</h1>
         <!-- <div id = "{{category}}"> -->
             {% for image in site.static_files %}
             {% if image.path contains category %}
