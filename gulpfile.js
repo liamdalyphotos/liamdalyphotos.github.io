@@ -10,9 +10,9 @@ const glob = require('glob');
 const path = require('path');
 const imageFolders = glob.sync('images/*/')
 
-gulp.task('delete', function () {
-    return del(['images/*.*']);
-});
+// gulp.task('delete', function () {
+//     return del(['images/*.*']);
+// });
 
 gulp.task('resize-images', function () {
 
@@ -65,7 +65,7 @@ gulp.task('minify-js', function () {
 gulp.task('build', gulp.series('sass', 'minify-js'));
 
 // resize images
-gulp.task('resize', gulp.series('delete', 'resize-images'));
+// gulp.task('resize', gulp.series('delete', 'resize-images'));
 
 // default task
-gulp.task('default', gulp.series('build', 'resize'));
+gulp.task('default', gulp.series('build', 'resize-images'));
