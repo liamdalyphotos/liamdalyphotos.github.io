@@ -14,7 +14,7 @@ layout: default
     <div id="main" data-exif='{{ site.exif }}'>
         {% for category in site.image_dirs %}
 
-        <h1 class = "category">{{category}}</h1> <br/>
+        <h1 class = "category" style="width: 100%; margin: 0; text-align: center;">{{category}}</h1>
 
             {% for image in site.static_files %}
             {% if image.path contains category %}
@@ -23,6 +23,8 @@ layout: default
                 <a href="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
                     <img src="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
                          data-name="{{ image.name }}"/></a>
+                <h2>{{image.name}}</h2>
+                <p>{{category}}/{{image.name}}</p>
 
             </article>
             {% endif %}

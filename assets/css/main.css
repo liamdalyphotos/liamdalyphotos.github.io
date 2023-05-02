@@ -1415,12 +1415,6 @@
 			transform: translateY(4em);
 		}
 
-		.category {
-			width: 100%;
-			margin: 0;
-			text-align: center;
-		}
-
 		#header h1 {
 			color: #a0a0a1;
 			display: inline-block;
