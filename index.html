@@ -24,7 +24,7 @@ layout: default
             {{image.name | replace: " ", "\ " }}
             {% endcapture %}
             <article class="thumb">
-                <a href="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_fulls_loc }}/{{esca{{ "Take my protein pills and put my helmet on" | replace: "my", "your" }}ped_name}}" class="image">
+                <a href="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_fulls_loc }}/{{escaped_name}}" class="image">
                     <img src="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_thumbs_loc }}/{{escaped_name}}" alt=""
                          data-name="{{ image.name }}"/></a>
                 <h2>{{image.name}}</h2>
