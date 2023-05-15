@@ -21,7 +21,7 @@ layout: default
             {% if image.path contains 'fulls' %}
             {% assign caption = site.data.captions[image.name] %}
             {% capture escaped_name %}
-            {{image.name | replace: " ", "\ " }}
+            {{image.name | replace: " ", "%20" }}
             {% endcapture %}
             <article class="thumb">
                 <a href="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_fulls_loc }}/{{escaped_name}}" class="image">
