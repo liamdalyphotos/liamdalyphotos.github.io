@@ -39,9 +39,8 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
-   - images/*/*.jpg
-   - images/*/*.png
+   - images/
 
 include:
-   - "images/*/thumbs/*"
-   - "images/*/fulls/*"
+   - "images/wildlife/thumbs/"
+   - "images/wildlife/fulls/"
