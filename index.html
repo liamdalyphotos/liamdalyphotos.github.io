@@ -24,9 +24,9 @@ layout: default
             {{image.name | replace: " ", "%20" }}
             {% endcapture %}
             <article class="thumb">
-                <a href="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_fulls_loc }}/{{escaped_name}}" class="image">
-                    <img src="{{ site.baseurl }}{{site.image_loc}}/{{category}}{{ site.image_thumbs_loc }}/{{escaped_name}}" alt=""
-                         data-name="{{ image.name }}"/></a>
+                <a href="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_fulls_loc}}/{{escaped_name}}" class="image">
+                    <img src="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{escaped_name}}" alt=""
+                         data-name="{{image.name}}"/></a>
                 <h2>{{image.name}}</h2>
                 <p>{{caption.caption}}</p>
 
