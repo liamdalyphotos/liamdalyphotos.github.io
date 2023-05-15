@@ -43,5 +43,5 @@ exclude:
    - images/*/*.png
 
 include:
-   - images/*/thumbs/*
-   - images/*/fulls/*
+   - "images/*/thumbs/*"
+   - "images/*/fulls/*"
