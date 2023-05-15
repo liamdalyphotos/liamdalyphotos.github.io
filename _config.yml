@@ -42,5 +42,5 @@ exclude:
    - images/
    
 include:
-   - images/**/thumbs/*
-   - images/**/fulls/*
+   - images/**/thumbs/
+   - images/**/fulls/
