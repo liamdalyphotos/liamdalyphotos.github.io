@@ -9,7 +9,7 @@ var del = require('del');
 const glob = require('glob');
 const path = require('path');
 const imageFolders = glob.sync('images/*/')
-
+const sourceFolders = glob.sync('_images/*/')
 // gulp.task('delete', function () {
 //     return del(['images/*.*']);
 // });
@@ -17,7 +17,7 @@ const imageFolders = glob.sync('images/*/')
 gulp.task('resize-images', function () {
 
     const promises = []
-    for (const bundle of imageFolders) {
+    for (const bundle of sourceFolders) {
 
         // get just the last directory of 'js/dev/bootstrap', 'js/dev/lib`, etc.
         let thisBundle = path.basename(bundle);
@@ -27,12 +27,12 @@ gulp.task('resize-images', function () {
             width: 1920,
             imageMagick: true
         }))
-        .pipe(gulp.dest(bundle + '/fulls'))
+        .pipe(gulp.dest((bundle + '/fulls').replace('_images','images')))
         .pipe(imageResize({
             width: 720,
             imageMagick: true
         }))
-        .pipe(gulp.dest(bundle + '/thumbs')));
+        .pipe(gulp.dest((bundle + '/thumbs').replace('_images','images'))));
         
     }
 
