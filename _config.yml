@@ -27,3 +27,20 @@ exif: '[{"tag": "Model", "icon": "camera-retro"}, {"tag": "FNumber", "icon": "do
   #dribbble: "https://dribbble.com/rampatra"
   #linkedin: "https://in.linkedin.com/in/ram-patra"
   #github: "https://www.github.com/rampatra"
+
+exclude:
+   - .sass-cache/
+   - .jekyll-cache/
+   - gemfiles/
+   - Gemfile
+   - Gemfile.lock
+   - node_modules/
+   - vendor/bundle/
+   - vendor/cache/
+   - vendor/gems/
+   - vendor/ruby/
+   - images/
+   
+include:
+   - images/**/thumbs/*
+   - images/**/fulls/*
