@@ -39,8 +39,8 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
-   - images/
+#   - images/
 
-include:
-   - "images/wildlife/thumbs/"
-   - "images/wildlife/fulls/"
+#include:
+#   - "images/wildlife/thumbs/"
+#   - "images/wildlife/fulls/"
