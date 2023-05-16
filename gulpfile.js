@@ -2,6 +2,8 @@
 
 var gulp = require('gulp');
 var imageResize = require('gulp-image-resize');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var sass = require('gulp-sass')(require('sass'));
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
@@ -27,11 +29,21 @@ gulp.task('resize-images', function () {
             width: 1920,
             imageMagick: true
         }))
-        .pipe(gulp.dest((bundle + '/fulls').replace('_images','images')))
+        .pipe(imagemin([
+            imagemin.mozjpeg({quality: 80, progressive: true}),
+            imagemin.optipng({optimizationLevel: 5})]
+        ))
+        .pipe(gulp.dest((bundle + '/fulls').replace('_images','images'))));
+        
+        promises.push(gulp.src(bundle + '/*.*')
         .pipe(imageResize({
             width: 720,
             imageMagick: true
         }))
+        .pipe(imagemin([
+            imagemin.mozjpeg({quality: 80, progressive: true}),
+            imagemin.optipng({optimizationLevel: 5})]
+        ))
         .pipe(gulp.dest((bundle + '/thumbs').replace('_images','images'))));
         
     }
