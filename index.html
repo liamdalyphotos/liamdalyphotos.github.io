@@ -12,7 +12,6 @@ layout: default
 
     <!-- Main -->
     <div id="main" data-exif='{{ site.exif }}'>
-        {%- assign counter = 0 %}
         {% for category in site.image_dirs %}
 
         <h1 class = "category" style="width: 100%; margin: 0; text-align: center;">{{category}}</h1>
@@ -25,15 +24,9 @@ layout: default
             {{image.name | replace: " ", "%20" | replace: "(", "%28" | replace: ")", "%29" }}
             {%- endcapture -%}
             <article class="thumb">
-                    {%- if counter > 9 %}
                     <a href="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_fulls_loc}}/{{escaped_name}}" data-bg="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{escaped_name}}" class="lazyload image">
                     <img data-src="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{escaped_name}}" alt=""
                          data-name="{{escaped_name}}" class="lazyload" /></a>
-                    {%- else %}
-                    <a href="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_fulls_loc}}/{{escaped_name}}" class="image">
-                    <img src="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{escaped_name}}" alt=""
-                    data-name="{{escaped_name}}"/></a>
-                    {%- endif %}
                 <h2>{{image.name}}</h2>
                 <p>{{caption.caption}}</p>
             </article>
