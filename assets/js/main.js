@@ -6,8 +6,21 @@
  Added EXIF data and enhanced for Jekyll by Ram Patra
  */
 
+ 
 (function ($) {
-
+    async function supportsWebp() {
+        if (!window.createImageBitmap) return false;
+        const data = 'data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+        return await fetch(data)
+          .then(r => r.blob())
+          .then(blob => createImageBitmap(blob)
+            .then(() => true, () => false)
+          );
+      };
+    
+    isWebpSupported = supportsWebp();
+    console.log('Webp supported: ' + isWebpSupported);
+    
     skel.breakpoints({
         xlarge: '(max-width: 1680px)',
         large: '(max-width: 1280px)',
@@ -229,12 +242,18 @@
             if ($image.length == 0)
                 return;
 
-            // Image.
-            // This sets the background of the "image" <span> to the image pointed to by its child
-            // <img> (which is then hidden). Gives us way more flexibility.
+            if (isWebpSupported) {
+                var thumbUrl = $image.attr('data-bg');
+                // Replace the image URL with the WebP version.
+                thumbUrl = thumbUrl.replace(/\.(png|jpg|jpeg)$/, '.webp');
+                $image.attr('data-bg', thumbUrl);
 
-            // Set background.
-            //$image.css('background-image', 'url(' + $image_img.attr('src') + ')');
+                var fullUrl = $image.attr('href');
+                // Replace the image URL with the WebP version.
+                fullUrl = fullUrl.replace(/\.(png|jpg|jpeg)$/, '.webp');
+                $image.attr('href', fullUrl);
+
+            }
 
             // Set background position.
             if (x = $image_img.data('position'))

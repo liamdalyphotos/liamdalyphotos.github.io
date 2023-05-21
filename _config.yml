@@ -1,6 +1,6 @@
 # Base configs
-baseurl: "https://liamdalyphotos.github.io"
-#baseurl: "" # Comment the above line and uncomment this to test the website locally
+#baseurl: "https://liamdalyphotos.github.io"
+baseurl: "" # Comment the above line and uncomment this to test the website locally
 image_dirs: ['wildlife','landscape']
 image_loc: "/images"
 image_fulls_loc: "/fulls"

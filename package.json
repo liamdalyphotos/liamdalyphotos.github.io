@@ -28,12 +28,14 @@
   "devDependencies": {
     "del": "^4.1.1",
     "gulp": "^4.0.2",
+    "gulp-ext-replace": "^0.3.0",
     "gulp-image-resize": "^0.13.1",
+    "gulp-imagemin": "^7.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-imagemin": "^7.1.0",
     "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^6.1.0",
     "sass": "^1.25.0"
   },
   "dependencies": {

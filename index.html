@@ -15,24 +15,37 @@ layout: default
         {% for category in site.image_dirs %}
 
         <h1 class = "category" style="width: 100%; margin: 0; text-align: center;">{{category}}</h1>
-            
             {%- for image in site.static_files %}
+            {%- unless image.path contains '.webp' -%}
             {%- if image.path contains category %}
             {%- if image.path contains 'fulls' %}
             {% assign caption = site.data.captions[image.name] %}
             {% capture escaped_name -%}
             {{image.name | replace: " ", "%20" | replace: "(", "%28" | replace: ")", "%29" }}
             {%- endcapture -%}
+
+            {%- assign extension_split = escaped_name | split: "." -%}
+            {%- assign image_name = extension_split[0] -%}
+            {%- assign extension = extension_split[1] -%}
+            
+            {%- capture full_path -%}
+            {{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_fulls_loc}}/{{image_name}}
+            {%- endcapture -%}
+            {%- capture thumb_path -%}
+            {{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{image_name}}
+            {%- endcapture -%}
+        
             <article class="thumb">
-                    <a href="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_fulls_loc}}/{{escaped_name}}" data-bg="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{escaped_name}}" class="lazyload image">
-                    <img data-src="{{site.baseurl}}{{site.image_loc}}/{{category}}{{site.image_thumbs_loc}}/{{escaped_name}}" alt=""
-                         data-name="{{escaped_name}}" class="lazyload" /></a>
+                    <a href="{{full_path}}.{{extension}}" data-bg="{{thumb_path}}.{{extension}}" class="lazyload image">
+                    <img class="lazyload" data-src="{{thumb_path}}.{{extension}}" alt=""
+                         data-name="{{escaped_name}}" /></a>
                 <h2>{{image.name}}</h2>
                 <p>{{caption.caption}}</p>
             </article>
             {%- assign counter = counter | plus: 1 %}
             {%- endif %}
             {%- endif %}
+            {%- endunless -%} 
             {%- endfor %}
             {%- endfor %}
 
